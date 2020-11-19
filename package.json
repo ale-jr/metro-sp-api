@@ -1,0 +1,13 @@
+{
+  "name": "status-metro-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "cors": "^2.8.5",
+    "dayjs": "^1.9.6",
+    "express": "^4.17.1"
+  }
+}
