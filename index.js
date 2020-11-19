@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import rateLimit from "express-rate-limit";
 import axios from "axios";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat.js";
@@ -8,6 +9,12 @@ import { colors } from "./consts.js";
 dayjs.extend(customParseFormat);
 const app = express();
 app.use(cors());
+app.set("trust proxy", 1);
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 5,
+});
+app.use(limiter);
 
 app.get("/subway-lines/status", (req, resp) => {
   axios
